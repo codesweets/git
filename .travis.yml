@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- '11'
+install:
+- npm install
+script:
+- npm run build
+- npm test
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: Trevor.Sundberg@gmail.com
+  api_key:
+    secure: nGoOLhKo77fuB1Bo9mKGgTJMc7X2ziriF1GeLjK2APOcVAD7rbN5DvJjg74zroXKbJM0sYHgv4h8evkUZojyUaLNntfnS1xm9wvCjXxsXAQhRdkBaX0C7QW0a31sS+B+WaJDA9PfHf3qR7zbsLxS4X652Jr9Y9UV4n+nbBcNNY/aI5MmrFXp+npvMOT/MHncbOLljJZPLPjINDFb28pZtNQ+MOfiwyIoH4w9zt1c9RNecApZcMpD8w5moyZj4SzhIlLQVjAc+9YfaZlB35+kukY+PSqL0247+wHJCISl/vlCIdnmO3VWSQtpYUFcIjq0h16f0FVUWrSsAt42qiIF/Xlmbe04k4DUO3+nBNxQAbH8oQGgAxgDKBH22FmOozHY+tgZomYMdTjaodL9U1Zbw+Wlq6mfgxxah40y2s1hDaYrGIPe48GDZRmB+aXKrNJvkzrRmYifjVhRKljXa6M/4w/RItn7SlamjUOmp/OdYwqSOcfLZkOh42Lc5IGKTmxYP+M+aRmL1Tv0QOd04jhBl7ZDCcmdtQvMS1jx6ErAkIdZob9MvD86cGRqN1ADa3cWyMI2FVzNGKgMez+sBj6T1+rqphUd1Noym23QgW3L9ygc2Gi5RG4GjouhSFbhIPDHthWR6PNrhjzMOu3zv3Rv/jqPuj/sApeqdHyCOU+upDs=
+  on:
+    tags: true
+    repo: codesweets/git
