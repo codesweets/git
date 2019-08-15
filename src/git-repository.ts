@@ -2,7 +2,7 @@ import * as git from "isomorphic-git";
 import {Directory, DirectoryData} from "@codesweets/file";
 import {EventEmitter} from "events";
 import {TaskMeta} from "@codesweets/core";
-import {Volume} from "memfs";
+import fs from "fs";
 
 export interface GitRepositoryData extends DirectoryData {
   url: string;
@@ -14,7 +14,7 @@ export interface GitArgs {
   corsProxy: string;
   dir: string;
   emitter: EventEmitter;
-  fs: InstanceType<typeof Volume>;
+  fs: typeof fs;
   password: string;
   url: string;
   username: string;
@@ -35,7 +35,7 @@ export class GitRepository extends Directory<GitRepositoryData> {
       corsProxy: "https://cors.isomorphic-git.org",
       dir: this.data.directory,
       emitter: this,
-      fs: this.fs,
+      fs,
       password: this.data.password_or_token,
       url: this.data.url,
       username: this.data.username

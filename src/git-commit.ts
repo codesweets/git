@@ -3,6 +3,8 @@ import {GitRepository} from "./git-repository";
 
 export interface GitCommitData {
   message: string;
+  name?: string;
+  email?: string;
 }
 
 export class GitCommit extends TaskWithData<GitCommitData> {
@@ -14,12 +16,14 @@ export class GitCommit extends TaskWithData<GitCommitData> {
   })
 
   protected async onInitialize (repo: GitRepository) {
+    const name = this.data.name || repo.data.username || "anonymous";
+    const email = this.data.email || `${repo.data.username}@example.com`;
     await repo.git.commit({
       ...repo.args,
       ...this.data,
       author: {
-        email: `${repo.data.username}@example.com`,
-        name: repo.data.username
+        email,
+        name
       }
     });
   }
