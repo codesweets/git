@@ -1,6 +1,6 @@
 {
   "name": "@codesweets/git",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tasks for performing git operations.",
   "keywords": [
     "codesweets-tasks"
