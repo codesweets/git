@@ -25,7 +25,12 @@ export class GitRepository extends Directory<GitRepositoryData> {
     construct: GitRepository,
     outputs: [Directory],
     schema: require("ts-schema!./git-repository.ts?GitRepositoryData"),
-    typename: "GitRepository"
+    typename: "GitRepository",
+    uiSchema: {
+      password_or_token: {
+        "ui:widget": "password"
+      }
+    }
   })
 
   public git = git
